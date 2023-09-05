@@ -1,4 +1,4 @@
-## 🛒 E-Commerce Data
+## 🛒 E-Commerce Data (Online Retail II)
 ![img](https://hivemarketingcloud.com/media/zphnp5zi/rfm-analysis-blog-graphic-01.png)
 # I analyzed the data of this dataset between 2009 and 2010 with Python. If you want to examine the RFM analysis in Python, you can click on the link below.
 [RFMwithPythonE-CommmerceData](https://github.com/muratukel/RFMwithPython-online_retail_II-/blob/main/RFM%C4%B0ntroAndCommentary.md.md)
