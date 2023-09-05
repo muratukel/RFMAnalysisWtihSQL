@@ -39,7 +39,7 @@ from e_commerce_data;
 |---------------------|
 | 2011-12-09 12:50:00 |
 
-🖍️ Last invoice date: "2011-12-09 12:50:00"
+❗ Last invoice date: "2011-12-09 12:50:00"
 
 # 📅 Recency Query
 
