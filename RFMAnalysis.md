@@ -26,6 +26,18 @@ select
 where customer_id != 'NULL'
 group by 1;
 ````
+| customer_id | max_date            |
+|------------|---------------------|
+| 16709      | 2011-09-16 10:56:00 |
+| 16427      | 2011-03-21 17:10:00 |
+| 13588      | 2011-11-24 10:42:00 |
+| 16765      | 2011-02-18 15:41:00 |
+| 18044      | 2011-12-05 14:26:00 |
+| 14747      | 2011-04-06 10:17:00 |
+| 13883      | 2011-12-08 19:20:00 |
+| 12871      | 2011-09-16 15:07:00 |
+| 15653      | 2011-09-08 10:49:00 |
+| 15171      | 2011-01-19 12:39:00 |
 
 🖍️ I am looking at the date of the last order.
 
@@ -60,6 +72,18 @@ select
 from recency_1
 order by 3 desc;
 ````
+| customer_id | max_date            | recency |
+|------------|---------------------|---------|
+| 14729      | 2010-12-01 12:43:00 | 373     |
+| 17968      | 2010-12-01 12:23:00 | 373     |
+| 13747      | 2010-12-01 10:37:00 | 373     |
+| 18074      | 2010-12-01 09:53:00 | 373     |
+| 16583      | 2010-12-01 12:03:00 | 373     |
+| 17908      | 2010-12-01 11:45:00 | 373     |
+| 12791      | 2010-12-01 11:27:00 | 373     |
+| 17855      | 2010-12-02 09:44:00 | 372     |
+| 13108      | 2010-12-02 10:35:00 | 372     |
+| 16048      | 2010-12-01 15:28:00 | 372     |
 
 # 🔂 Frequency Query
 
@@ -73,6 +97,18 @@ where customer_id != 'NULL' and invoice_no not like 'C%' and quantity > 0
 group by 1 
 order by 2 desc;
 ````
+| customer_id | frequency |
+|------------|-----------|
+| 17841      | 7847      |
+| 14911      | 5677      |
+| 14096      | 5111      |
+| 12748      | 4596      |
+| 14606      | 2700      |
+| 15311      | 2379      |
+| 14646      | 2080      |
+| 13089      | 1818      |
+| 13263      | 1677      |
+| 14298      | 1637      |
 
 # 💰 Monetary Query
 
@@ -86,6 +122,18 @@ where customer_id != 'NULL' and invoice_no not like 'C%' and quantity > 0
 group by 1 
 order by 2 desc;
 ````
+| customer_id | monetary  |
+|------------|-----------|
+| 14646      | 280206.02 |
+| 18102      | 259657.30 |
+| 17450      | 194550.79 |
+| 16446      | 168472.50 |
+| 14911      | 143825.06 |
+| 12415      | 124914.53 |
+| 14156      | 117379.63 |
+| 17511      | 91062.38  |
+| 16029      | 81024.84  |
+| 12346      | 77183.60  |
 
 ## RFM QUERY 🕒🔄💲
 🖍️ Here I have segmented it according to specific RFM code ranges.
@@ -161,6 +209,19 @@ select
 		end as RFM_Segment
 from rfm_segmented;
 ````
+| customer_id | recency | r | frequency | f | monetary | m | rfm  | rfm_segment     |
+|------------|---------|---|-----------|---|----------|---|------|-----------------|
+| 13747      | 373     | 1 | 1         | 1 | 79.60    | 1 | 111  | New Customers   |
+| 18074      | 373     | 1 | 13        | 1 | 489.60   | 2 | 112  | New Customers   |
+| 12791      | 373     | 1 | 2         | 1 | 192.60   | 1 | 111  | New Customers   |
+| 17908      | 373     | 1 | 58        | 3 | 243.28   | 1 | 131  | New Customers   |
+| 16583      | 373     | 1 | 14        | 2 | 233.45   | 1 | 121  | New Customers   |
+| 14729      | 373     | 1 | 71        | 4 | 313.49   | 2 | 142  | New Customers   |
+| 17968      | 373     | 1 | 85        | 4 | 277.35   | 2 | 142  | New Customers   |
+| 17925      | 372     | 1 | 1         | 1 | 244.08   | 1 | 111  | New Customers   |
+| 15923      | 372     | 1 | 21        | 2 | 127.08   | 1 | 121  | New Customers   |
+| 17732      | 372     | 1 | 18        | 2 | 303.97   | 2 | 122  | New Customers   |
+
 🖍️ I segmented many RFM code combinations to better understand customers and develop more effective marketing strategies.
 ````sql
 with rfm  as 
@@ -239,3 +300,15 @@ select
 	end as rfm_segment
 from rfm_segmented;
 ````
+| customer_id | recency | r | frequency | f | monetary | m | rfm  | rfm_segment         |
+|------------|---------|---|-----------|---|----------|---|------|---------------------|
+| 13747      | 373     | 1 | 1         | 1 | 79.60    | 1 | 111  | Lost Customers      |
+| 18074      | 373     | 1 | 13        | 1 | 489.60   | 2 | 112  | Lost Customers      |
+| 12791      | 373     | 1 | 2         | 1 | 192.60   | 1 | 111  | Lost Customers      |
+| 17908      | 373     | 1 | 58        | 3 | 243.28   | 1 | 131  | Lost Customers      |
+| 16583      | 373     | 1 | 14        | 2 | 233.45   | 1 | 121  | Lost Customers      |
+| 14729      | 373     | 1 | 71        | 4 | 313.49   | 2 | 142  | At Risk             |
+| 17968      | 373     | 1 | 85        | 4 | 277.35   | 2 | 142  | At Risk             |
+| 17925      | 372     | 1 | 1         | 1 | 244.08   | 1 | 111  | Lost Customers      |
+| 15923      | 372     | 1 | 21        | 2 | 127.08   | 1 | 121  | Lost Customers      |
+| 17732      | 372     | 1 | 18        | 2 | 303.97   | 2 | 122  | Hibernating Customers|
