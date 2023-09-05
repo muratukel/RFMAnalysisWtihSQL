@@ -1,6 +1,8 @@
 ## 🛒 E-Commerce Data
 ![img](https://hivemarketingcloud.com/media/zphnp5zi/rfm-analysis-blog-graphic-01.png)
 
+[RFMwithPythonE-CommmerceData](https://github.com/muratukel/RFMwithPython-online_retail_II-/blob/main/RFM%C4%B0ntroAndCommentary.md.md)
+
 ## Dataset Link : https://archive.ics.uci.edu/dataset/502/online+retail+ii
 
 # 📊 I did RFM analysis in PostgeSQL by taking the data between 2010-2011 in our dataset.
