@@ -313,5 +313,6 @@ from rfm_segmented;
 | 15923      | 372     | 1 | 21        | 2 | 127.08   | 1 | 121  | Lost Customers      |
 | 17732      | 372     | 1 | 18        | 2 | 303.97   | 2 | 122  | Hibernating Customers|
 
+## 🏞️ RFM Analysis Chart
 
 ![image](https://github.com/muratukel/RFMAnalysisWtihSQL/assets/136103635/f1557529-10c5-402f-81bb-b67955415a0a)
